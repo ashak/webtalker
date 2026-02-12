@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :messages
   resource :session
+  resource :telnet_session, only: [:create, :update]
   resources :passwords, param: :token
 
   # Defines the root path route ("/")
