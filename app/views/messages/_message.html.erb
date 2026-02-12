@@ -1,0 +1,3 @@
+<div id="<%= dom_id message %>">
+  <%= message.sender&.email_address ? message.sender&.email_address + ": " : '' %><%= message.content %>
+</div>
