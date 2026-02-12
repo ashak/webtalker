@@ -1,2 +1,38 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.terminal {
+    font-family: "Courier New", Courier, monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.terminal-output {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    turbo-frame {
+        width: 100%;
+    }
+}
+
+.terminal-prompt {
+    margin-right: 0.5rem;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.terminal-input::placeholder {
+    color: transparent;
+}

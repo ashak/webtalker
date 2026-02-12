@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_12_134621) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_12_141532) do
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.integer "receiver_id"
+    t.string "receiver_type"
+    t.integer "sender_id"
+    t.string "sender_type"
+    t.datetime "updated_at", null: false
+    t.index ["receiver_type", "receiver_id"], name: "index_messages_on_receiver"
+    t.index ["sender_type", "sender_id"], name: "index_messages_on_sender"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "ip_address"

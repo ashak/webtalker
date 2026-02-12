@@ -1,20 +1,14 @@
-<div class="terminal container-fluid">
+<div class="terminal container-fluid" data-bs-theme="dark" data-controller="terminal">
   
-  <!-- Output area -->
-  <div id="output" class="terminal-output mb-2">
-    Welcome to the Bootstrap Terminal.
-    Type something below.
+  <%= turbo_stream_from :talker %>
+
+  <div id="messages" class="terminal-output" data-terminal-target="output" data-action="scroll->terminal#update_scroll_status">
+    <%= render Current.user.messages.order(created_at: :desc).limit(20).reverse %>
   </div>
 
-  <!-- Input line -->
   <div class="terminal-input-line">
-    <span class="terminal-prompt">$</span>
-    <input 
-      type="text" 
-      id="terminalInput" 
-      class="terminal-input"
-      autofocus
-    >
+    <span class="terminal-prompt">&gt;</span>
+    <%= turbo_frame_tag 'new_message', src: new_message_path, target: '_top' %>
   </div>
 
 </div>
