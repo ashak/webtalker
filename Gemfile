@@ -61,6 +61,7 @@ group :development do
   gem "web-console"
 
   gem "websocket-client-simple"
+  gem "ruby-lsp-rails"
   gem "pry-byebug"
 end
 
